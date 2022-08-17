@@ -63,7 +63,7 @@ class Model:
         else:
             return macas * 1.00
 
-    def exercicio10(self):
+    def exercicio10(self, num):
         pass
 
     def exercicio11(self, salario, vendas):
@@ -96,4 +96,42 @@ class Model:
             return "Número inválido."
 
     def exercicio14(self, n):
+        for x in range(1, n + 1):
+            print(x)
+
+    def exercicio15(self):
+        numNegativo = 0
+        for i in range(0, 10):
+            print("Informe um número:")
+            num = int(input())
+            if num < 0:
+                numNegativo = numNegativo + 1
+        return "Houve {} número(s) negativo(s).".format(numNegativo)
+
+    def exercicio16(self):
+        guardarNum = 0
+        for i in range(0, 10):
+            print("Informe um número:")
+            num = int(input())
+            if num < 40:
+                guardarNum = guardarNum + num
+        return "O total somado é: {}".format(guardarNum)
+
+    def exercicio17(self):
+        media = 58 * 115 / 85
+        return "A média aritmética do intervalo de 15 e 100 é: {}".format(media)
+
+    def exercicio18(self):
         pass
+
+    def exercicio19(self):
+        contarNota = 0#contador que guarda as notas inseridas para calcular a média
+        maiorNota = 0#contador que guarda as notas superiores a media da sala
+        for i in range(0, 20):
+            print("Informe a nota:")
+            nota = float(input())
+            contarNota = contarNota + nota
+            media = contarNota / 20
+            if nota > media:
+                maiorNota = maiorNota + 1
+        return "A média da sala é: {}.\nHouveram {} notas acima da média.".format(media, maiorNota)

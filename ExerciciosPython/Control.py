@@ -182,5 +182,18 @@ class Control:
                 print("Digite um número:")
                 n = int(input())
                 print(self.model.exercicio14(n))
+            elif self.opcao == 15:
+                print("EXERCÍCIO 15")
+                print(self.model.exercicio15())
+            elif self.opcao == 16:
+                print("EXERCÍCIO 16")
+                print(self.model.exercicio16())
+            elif self.opcao == 17:
+                print("EXERCÍCIO 17")
+                print(self.model.exercicio17())
+
+            elif self.opcao == 19:
+                print("EXERCÍCIO 19")
+                print(self.model.exercicio19())
             else:
                 print("Opção inválida!")
