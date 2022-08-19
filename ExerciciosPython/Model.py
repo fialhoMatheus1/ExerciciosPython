@@ -41,7 +41,7 @@ class Model:
     def exercicio05(self, eleitores, brancos, nulos, validos):
         totalVotos = brancos + nulos + validos
         if totalVotos == eleitores:
-            return "Total de eleitores: {}\nPercentual brancos: {}%\nPercentual nulos: {}%\nPercentual validos: {}%".format(eleitores, (eleitores * brancos) /100, (eleitores * nulos) / 100, (eleitores * validos) / 100)
+            return "Total de eleitores: {}\nPercentual brancos: {}%\nPercentual nulos: {}%\nPercentual validos: {}%".format(eleitores, (eleitores * brancos) / 100, (eleitores * nulos) / 100, (eleitores * validos) / 100)
         else:
             return "Quantidade de votos não bate com total de eleitores. Tente novamente."
 
@@ -50,7 +50,7 @@ class Model:
         return "Seu salário reajustado é: R${}".format(salarioNovo)
 
     def exercicio07(self, custoFabrica, percentualDistribuidor, percentualImposto):
-        totalImposto = percentualDistribuidor / 100 + percentualImposto / 100
+        totalImposto = (percentualDistribuidor / 100) + (percentualImposto / 100)
         custoFinal = custoFabrica + (custoFabrica + totalImposto)
         return "O custo final ao consumidor é: R${}".format(custoFinal)
 
@@ -70,13 +70,13 @@ class Model:
         if vendas < 1:
             return("Impossível calcular com vendas negativas.")
         if vendas <= 1500.00:
-            totalVendas = (vendas * 3) /100
+            totalVendas = (vendas * 3) / 100
             novoSalario = totalVendas + salario
             return novoSalario
         else:
             vendasExtras = vendas - 1500.00
             vendasExtras = (vendasExtras * 5) / 100
-            totalVendas = (vendas * 3) / 100
+            totalVendas = (1500 * 3) / 100
             novoSalario = totalVendas + vendasExtras + salario
             return novoSalario
     def exercicio12(self, conta, saldo, debito, credito):
@@ -126,12 +126,16 @@ class Model:
 
     def exercicio19(self):
         contarNota = 0#contador que guarda as notas inseridas para calcular a média
-        maiorNota = 0#contador que guarda as notas superiores a media da sala
+        maiorNota = 0 #contador que guarda as notas superiores a media da sala
+        msg = ""      #mensagem mostrada ao final do programa
         for i in range(0, 20):
             print("Informe a nota:")
             nota = float(input())
             contarNota = contarNota + nota
             media = contarNota / 20
-            if nota > media:
+            if nota > 5:
                 maiorNota = maiorNota + 1
-        return "A média da sala é: {}.\nHouveram {} notas acima da média.".format(media, maiorNota)
+                msg = msg + "A média da sala é: {}.\nHouve {} notas acima da média.".format(media, maiorNota)
+            else:
+                msg = msg + "A média da turma é: {}\nNão houve notas acima da média.".format(media)
+        return msg

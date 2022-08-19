@@ -11,7 +11,6 @@ class Control:
         self.idade = 0
         self.meses = 0
         self.dias = 0
-        self.macas = 0
 
     def getC(self):
         return self.c
@@ -48,12 +47,6 @@ class Control:
 
     def setDias(self, dias):
         self.dias = dias
-
-    def getMacas(self):
-        return self.macas
-
-    def setMacas(self, macas):
-        self.macas = macas
 
     def menu(self):
         print("")
@@ -98,29 +91,74 @@ class Control:
             elif self.opcao == 3:
                 print("EXERCÍCIO 3")
                 print("Digite a base:")
-                self.setBase(int(input()))
+                base = float(input())
+                while base <= 0:
+                    if base <= 0:
+                        print("Impossível calular. Tente novamente:")
+                        print("Digite a base:")
+                        base = int(input())
                 print("Digite a altura:")
-                self.setAltura(int(input()))
-                print("A área é: {}".format(self.model.exercicio03(self.getBase(), self.getAltura())))
+                altura = float(input())
+                while altura <= 0:
+                    if altura <= 0:
+                        print("Impossível calular. Tente novamente:")
+                        print("Digite a base:")
+                        altura = float(input())
+                print("A área é: {}".format(self.model.exercicio03(base, altura)))
             elif self.opcao == 4:
                 print("EXERCÍCIO 4")
                 print("Digite sua idade:")
-                self.setIdade(int(input()))
+                idade = int(input())
+                while idade < 0:
+                    if idade < 0:
+                        print("Valor inválido. Tente novamente:")
+                        print("Digite sua idade:")
+                        idade = int(input())
                 print("Digite seus meses:")
-                self.setMeses(int(input()))
+                meses = int(input())
+                while meses < 0:
+                    if meses < 0:
+                        print("Valor inválido. Tente novamente:")
+                        print("Digite seus meses:")
+                        meses = int(input())
                 print("Digite seus dias:")
-                self.setDias(int(input()))
-                print("Sua idade em dias é: {}".format(self.model.exercicio04(self.getIdade(), self.getMeses(), self.getDias())))
+                dias = int(input())
+                while dias <= 0:
+                    if dias <= 0:
+                        print("Valor inválido. Tente novamente:")
+                        print("Digite sues dias:")
+                        dias = int(input())
+                print("Sua idade em dias é: {}".format(self.model.exercicio04(idade,meses, dias)))
             elif self.opcao == 5:
                 print("EXERCÍCIO 5")
                 print("Digite o total de eleitores")
                 eleitores = float(input())
+                while eleitores < 0:
+                    if eleitores < 0:
+                        print("Valor inválido. Tente novamente.")
+                        print("Digite o total de eleitores")
+                        eleitores = float(input())
                 print("Digite o total de votos brancos: ")
                 brancos = float(input())
+                while brancos < 0:
+                    if brancos < 0:
+                        print("Valor inválido. Tente novamente.")
+                        print("Digite o total de eleitores")
+                        brancos = float(input())
                 print("Digite o total de votos nulos: ")
                 nulos = float(input())
+                while nulos < 0:
+                    if nulos < 0:
+                        print("Valor inválido. Tente novamente.")
+                        print("Digite o total de eleitores")
+                        nulos = float(input())
                 print("Digite o total de votos validos: ")
                 validos = float(input())
+                while validos < 0:
+                    if validos < 0:
+                        print("Valor inválido. Tente novamente.")
+                        print("Digite o total de eleitores")
+                        validos = float(input())
                 print(self.model.exercicio05(eleitores, brancos, nulos, validos))
             elif self.opcao == 6:
                 print("EXERCÍCIO 6")
@@ -142,16 +180,36 @@ class Control:
                 print("EXERCÍCIO 8")
                 print("Digite a primeira nota:")
                 nota1 = float(input())
+                while (nota1 > 10) | (nota1 < 0):
+                    if (nota1 > 10) | (nota1 <0):
+                        print("Impossível calcular. Tente novamente:")
+                        print("Digite a primeira nota:")
+                        nota1 = float(input())
                 print("Digite a segunda nota:")
                 nota2 = float(input())
+                while (nota2 > 10) | (nota2 < 0):
+                    if (nota2 > 10) | (nota2 <0):
+                        print("Impossível calcular. Tente novamente:")
+                        print("Digite a primeira nota:")
+                        nota2 = float(input())
                 print("Digite a terceira nota:")
                 nota3 = float(input())
+                while (nota3 > 10) | (nota3 < 0):
+                    if (nota3 > 10) | (nota3 <0):
+                        print("Impossível calcular. Tente novamente:")
+                        print("Digite a primeira nota:")
+                        nota3 = float(input())
                 print("A média é: {}".format(self.model.exercicio08(nota1, nota2, nota3)))
             elif self.opcao == 9:
                 print("EXERCÍCIO 9")
                 print("Digite o total de maças compradas:")
-                self.setMacas(float(input()))
-                print("o total a pagar é: {}".format(self.model.exercicio09(self.getMacas())))
+                macas = float(input())
+                while macas <= 0:
+                    if macas <= 0:
+                        print("Valor inválido, Tente novamente.")
+                        print("Digite o total de maças compradas:")
+                        macas = float(input())
+                print("o total a pagar é: {}".format(self.model.exercicio09(macas)))
             elif self.opcao == 10:
                 pass
             elif self.opcao == 11:
